@@ -1,40 +1,30 @@
 pipeline {
     agent any
-
-    tools {
-        maven 'mvn'
+    tools{
+        maven 'M1'
     }
-
-    stages {
-        stage("Fetching") {
+    stages 
+    {
+        stage('Fetching')
+        {
+            steps 
+            {
+                git branch:'main', url:'https://github.com/RajeshThangapandi/SpringPetClinic'
+            }
+        }
+    
+        
+        stage('Compile') 
+        {
+            steps 
+            {
+                sh 'mvn compile'
+            }
+        }
+        
+         stage('test') {
             steps {
-                git branch: "master", 
-                url:"https://github.com/RajeshThangapandi/SpringPetClinic"
-            }
-        }
-        stage("Compile") {
-            steps {
-                bat 'mvn compile'
-            }
-        }
-        stage("Test"){
-            steps{
-                bat 'mvn test'
-            }
-        }
-        stage("Package"){
-            steps{
-                bat 'mvn package'
-            }
-        }
-        stage("Verify"){
-            steps{
-                bat 'mvn verify'
-            }
-        }
-        stage("Install"){
-            steps{
-                bat 'mvn install'
+                sh 'mvn test'
             }
         }
     }
