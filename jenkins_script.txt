@@ -5,26 +5,27 @@ pipeline {
     }
     stages 
     {
-        stage('Fetching')
-        {
-            steps 
-            {
-                git branch:'main', url:'https://github.com/RajeshThangapandi/SpringPetClinic'
-            }
-        }
-    
-        
-        stage('Compile') 
-        {
-            steps 
-            {
-                sh 'mvn compile'
-            }
-        }
-        
-         stage('test') {
+         stage('Clean') {
             steps {
-                sh 'mvn test'
+                script {
+                    sh 'mvn clean'
+                }
+            }
+        }
+
+        stage('Validate') {
+            steps {
+                script {
+                    sh 'mvn validate'
+                }
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                script {
+                    sh 'mvn compile'
+                }
             }
         }
     }
