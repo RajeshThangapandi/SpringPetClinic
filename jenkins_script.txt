@@ -28,10 +28,10 @@ pipeline {
                 }
             }
         }
- stage('Test') {
+  stage('Package') {
             steps {
                 script {
-                    sh 'mvn test'
+                    sh 'mvn package'
                 }
             }
         }
