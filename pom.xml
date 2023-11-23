@@ -103,6 +103,19 @@
     </dependency>
     <!-- end of webjars -->
 
+       <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.7.0</version> <!-- or a different version -->
+        <scope>test</scope>
+    </dependency>
+    <!-- Add this if you are using JUnit 5 with the vintage engine -->
+    <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>5.7.0</version> <!-- or a different version -->
+        <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
@@ -175,6 +188,7 @@
         </configuration>
       </plugin>
 
+        
       <plugin>
         <groupId>ro.isdc.wro4j</groupId>
         <artifactId>wro4j-maven-plugin</artifactId>
