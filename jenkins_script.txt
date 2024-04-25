@@ -28,11 +28,10 @@ pipeline {
                 }
             }
         }
-  stage('Package') {
+stage('Build') {
             steps {
-                script {
-                    sh 'mvn package'
-                }
+                echo 'Building Maven project'
+                sh 'mvn clean install -e -X'
             }
         }
     }
