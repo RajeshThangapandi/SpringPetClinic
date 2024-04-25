@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-        stage('Validate') {
+        stage('Compile') {
             steps {
                 script {
                     sh 'mvn validate'
@@ -21,18 +21,12 @@ pipeline {
             }
         }
 
-        stage('Compile') {
+        stage('validate') {
             steps {
                 script {
                     sh 'mvn compile'
                 }
             }
         }
-stage('Build') {
-            steps {
-                echo 'Building Maven project'
-                sh 'mvn clean install -e -X'
-            }
-        }
-    }
+
 }
